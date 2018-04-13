@@ -29,13 +29,21 @@ public class ReservationHandler extends HttpServlet {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		//response.getWriter().append(request.getParameter("query"));
-
-		if ((request.getParameter("type")).equalsIgnoreCase("car")) {
-			response.getWriter().append("CAR selected");	
-		} else if  
-		else {
-			response.getWriter().append("INvalid query");
+	
+		if ((request.getParameter("type")) != null) {
+			String type = (request.getParameter("type"));
+			if (type.equalsIgnoreCase("hotel")) {
+				response.getWriter().append("hotel selected");	
+			} else if (type.equalsIgnoreCase("villa")) {
+				response.getWriter().append("villa selected");	
+			}
+			else {
+				response.getWriter().append("INvalid type");
+			}
+		} else {
+			response.getWriter().append("No type parameter");
 		}
+		
 	}
 
 	/**
